@@ -1,0 +1,9 @@
+*.o
+*.stackdump
+.vscode
+libft.a
+libft/
+fillit.exe
+fillit
+
+tests/
