@@ -19,20 +19,12 @@ TARGET = fillit
 SRC =	srcs/main.c \
 		srcs/parse_input.c \
 		srcs/valid_tetriminos.c \
-		srcs/error_invalid_input.c \
-		srcs/ft_ptrtab_free.c \
-		srcs/ft_strsplit_by_substring.c \
-		srcs/ft_strtab_free.c \
-		srcs/ft_strtab_len.c
+		srcs/error_invalid_input.c
 
 OBJ =	main.o \
 		parse_input.o \
 		valid_tetriminos.o \
-		error_invalid_input.o \
-		ft_ptrtab_free.o \
-		ft_strsplit_by_substring.o \
-		ft_strtab_free.o \
-		ft_strtab_len.o
+		error_invalid_input.o
 
 $(TARGET):
 	# @$(CC) $(FLAGS) -c $(SRC)

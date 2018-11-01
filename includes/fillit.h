@@ -56,15 +56,6 @@ struct s_tetriminos
 };
 
 /*
-*	Lib functions.
-*/
-
-char			**ft_strsplit_by_substring(char *str, char *delimiter);
-int				ft_strtab_len(char **tab);
-void			ft_strtab_free(char **tab);
-void			ft_ptrtab_free(void **tab, int size);
-
-/*
 *	Fillit functions.
 */
 
