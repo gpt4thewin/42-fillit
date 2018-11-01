@@ -39,6 +39,21 @@ static int	count_tetriminos(int file_size, int *count)
 	return (1);
 }
 
+static int	validate(t_tetriminos *tetriminos, int count)
+{
+	int	i;
+
+	i = 0;
+	while (i < count)
+	{
+		if (!validate_tetriminos(&tetriminos[i]))
+			return (0);
+		i++;
+	}
+
+	return (1);
+}
+
 int			main(int argc, char *argv[])
 {
 	t_tetriminos	*tetriminos;
@@ -66,6 +81,11 @@ int			main(int argc, char *argv[])
 	tetriminos = ft_memalloc(sizeof(t_tetriminos) * count);
 
 	if (!parse_input(buffer, tetriminos, count))
+	{
+		error_invalid_input();
+	}
+
+	if (!validate(tetriminos, count))
 	{
 		error_invalid_input();
 	}

@@ -68,6 +68,6 @@ void			ft_ptrtab_free(void **tab, int size);
 *	Fillit functions.
 */
 
-int					parse_input(char *input, t_tetriminos *tetriminos, int count);
-
+int				parse_input(char *input, t_tetriminos *tetriminos, int count);
+int				validate_tetriminos(t_tetriminos *tetriminos);
 void			error_invalid_input();
