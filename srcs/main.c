@@ -54,6 +54,18 @@ static int	validate(t_tetriminos *tetriminos, int count)
 	return (1);
 }
 
+static void	normalize(t_tetriminos *tetriminos, int count)
+{
+	int	i;
+
+	i = 0;
+	while (i < count)
+	{
+		normalize_tetriminos(&tetriminos[i]);
+		i++;
+	}
+}
+
 int			main(int argc, char *argv[])
 {
 	t_tetriminos	*tetriminos;
@@ -89,6 +101,8 @@ int			main(int argc, char *argv[])
 	{
 		error_invalid_input();
 	}
+
+	normalize(tetriminos, count);
 
 	// int i = 0;
 	// while (i < 4)

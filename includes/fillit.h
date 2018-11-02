@@ -61,4 +61,7 @@ struct s_tetriminos
 
 int				parse_input(char *input, t_tetriminos *tetriminos, int count);
 int				validate_tetriminos(t_tetriminos *tetriminos);
+void			normalize_tetriminos(t_tetriminos *tetriminos);
 void			error_invalid_input();
+
+void			debug_print_tetriminos(t_tetriminos *tetriminos);

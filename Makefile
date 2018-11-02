@@ -19,12 +19,16 @@ TARGET = fillit
 SRC =	srcs/main.c \
 		srcs/parse_input.c \
 		srcs/valid_tetriminos.c \
-		srcs/error_invalid_input.c
+		srcs/normalize_tetriminos.c \
+		srcs/error_invalid_input.c \
+		srcs/debug_print_tetriminos.c
 
 OBJ =	main.o \
 		parse_input.o \
 		valid_tetriminos.o \
-		error_invalid_input.o
+		normalize_tetriminos.o \
+		error_invalid_input.o \
+		debug_print_tetriminos.o
 
 $(TARGET):
 	# @$(CC) $(FLAGS) -c $(SRC)

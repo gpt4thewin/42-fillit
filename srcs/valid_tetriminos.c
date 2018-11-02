@@ -23,7 +23,6 @@ static int		has_adjacent(t_tetriminos *tetriminos, t_point *p1)
 	{
 		p2 = &tetriminos->points[i];
 		dist = ABS(p2->x - p1->x) + ABS(p2->y - p1->y);
-		DEBUG_INT(dist)
 		if (dist == 1)
 			return (1);
 		i++;
