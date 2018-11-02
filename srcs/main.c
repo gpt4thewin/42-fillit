@@ -30,7 +30,7 @@ static int	read_file(char *path, char *buffer, int *file_size)
 	return (1);
 }
 
-static int	count_tetriminos(int file_size, int *count)
+static int	tetriminos_count(int file_size, int *count)
 {
 	if ((file_size - INPUT_TETRIMINOS_SIZE) % (INPUT_TETRIMINOS_SIZE + 1) != 0)
 		return (0);
@@ -46,7 +46,7 @@ static int	validate(t_tetriminos *tetriminos, int count)
 	i = 0;
 	while (i < count)
 	{
-		if (!validate_tetriminos(&tetriminos[i]))
+		if (!tetriminos_validate(&tetriminos[i]))
 			return (0);
 		i++;
 	}
@@ -61,7 +61,7 @@ static void	normalize(t_tetriminos *tetriminos, int count)
 	i = 0;
 	while (i < count)
 	{
-		normalize_tetriminos(&tetriminos[i]);
+		tetriminos_normalize(&tetriminos[i]);
 		i++;
 	}
 }
@@ -84,7 +84,7 @@ int			main(int argc, char *argv[])
 		error_invalid_input();
 	}
 
-	if (!count_tetriminos(file_size, &count))
+	if (!tetriminos_count(file_size, &count))
 	{
 		printf("input check by len KO");
 		error_invalid_input();
@@ -92,7 +92,7 @@ int			main(int argc, char *argv[])
 
 	tetriminos = ft_memalloc(sizeof(t_tetriminos) * count);
 
-	if (!parse_input(buffer, tetriminos, count))
+	if (!input_parse(buffer, tetriminos, count))
 	{
 		error_invalid_input();
 	}

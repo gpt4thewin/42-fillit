@@ -31,7 +31,7 @@ static int		has_adjacent(t_tetriminos *tetriminos, t_point *p1)
 	return (0);
 }
 
-int				validate_tetriminos(t_tetriminos *tetriminos)
+int				tetriminos_validate(t_tetriminos *tetriminos)
 {
 	int		i;
 

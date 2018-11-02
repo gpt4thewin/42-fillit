@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_input.c                                      :+:      :+:    :+:   */
+/*   input_parse.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 19:13:51 by juazouz           #+#    #+#             */
-/*   Updated: 2018/11/02 00:09:32 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/11/02 02:17:14 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static int			parse_tetriminos(char *input, t_tetriminos *tetriminos)
 	return (tetriminos->points_count == TETRIMINOS_SIZE);
 }
 
-int					parse_input(char *input, t_tetriminos *tetriminos, int count)
+int					input_parse(char *input, t_tetriminos *tetriminos, int count)
 {
 	int	i;
 

@@ -17,16 +17,16 @@ FLAGS = -Wall -Wextra -Werror -gdwarf-3 -I includes
 TARGET = fillit
 
 SRC =	srcs/main.c \
-		srcs/parse_input.c \
-		srcs/valid_tetriminos.c \
-		srcs/normalize_tetriminos.c \
+		srcs/input_parse.c \
+		srcs/tetriminos_validate.c \
+		srcs/tetriminos_normalize.c \
 		srcs/error_invalid_input.c \
 		srcs/debug_print_tetriminos.c
 
 OBJ =	main.o \
-		parse_input.o \
-		valid_tetriminos.o \
-		normalize_tetriminos.o \
+		input_parse.o \
+		tetriminos_validate.o \
+		tetriminos_normalize.o \
 		error_invalid_input.o \
 		debug_print_tetriminos.o
 

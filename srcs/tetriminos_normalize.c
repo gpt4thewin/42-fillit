@@ -59,7 +59,7 @@ static void		vector_sub(t_point *point, int x, int y)
 	point->y -= y;
 }
 
-void			normalize_tetriminos(t_tetriminos *tetriminos)
+void			tetriminos_normalize(t_tetriminos *tetriminos)
 {
 	int		i;
 	int		min_x;

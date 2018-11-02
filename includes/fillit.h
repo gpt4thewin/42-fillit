@@ -59,9 +59,9 @@ struct s_tetriminos
 *	Fillit functions.
 */
 
-int				parse_input(char *input, t_tetriminos *tetriminos, int count);
-int				validate_tetriminos(t_tetriminos *tetriminos);
-void			normalize_tetriminos(t_tetriminos *tetriminos);
+int				input_parse(char *input, t_tetriminos *tetriminos, int count);
+int				tetriminos_validate(t_tetriminos *tetriminos);
+void			tetriminos_normalize(t_tetriminos *tetriminos);
 void			error_invalid_input();
 
 void			debug_print_tetriminos(t_tetriminos *tetriminos);
