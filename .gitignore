@@ -1,9 +1,7 @@
+obj/
 *.o
 *.stackdump
 .vscode
-libft.a
-libft/
-fillit.exe
 fillit
-
+test.sh
 tests/

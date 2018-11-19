@@ -6,15 +6,15 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/02 01:30:06 by juazouz           #+#    #+#             */
-/*   Updated: 2018/11/19 11:44:58 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/11/19 16:15:50 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static int any_point_at(t_tetriminos *tetriminos, int x, int y)
+static int anything_at(t_tetriminos *tetriminos, int x, int y)
 {
-	t_point *point;
+	t_point	*point;
 	int		i;
 
 	i = 0;
@@ -35,7 +35,7 @@ static void	print_line(t_tetriminos *tetriminos, int y)
 	i = 0;
 	while (i < INPUT_LINE_LEN)
 	{
-		if (any_point_at(tetriminos, i, y))
+		if (anything_at(tetriminos, i, y))
 			ft_putchar('#');
 		else
 			ft_putchar('.');

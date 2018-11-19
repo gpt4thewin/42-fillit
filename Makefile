@@ -12,35 +12,50 @@
 
 CC = gcc
 
-FLAGS = -Wall -Wextra -Werror -gdwarf-3 -I includes
+CFLAGS = -Wall -Wextra -Werror -I $(IDIR) -I $(LIBFT)/includes
 
-TARGET = fillit
+IDIR = includes
+SDIR = srcs
+ODIR = obj
+LIBFT = libft
 
-SRC =	srcs/main.c \
-		srcs/input_parse.c \
-		srcs/tetriminos_validate.c \
-		srcs/tetriminos_normalize.c \
-		srcs/error_invalid_input.c \
-		srcs/debug_print_tetriminos.c
+NAME = fillit
 
-OBJ =	main.o \
-		input_parse.o \
-		tetriminos_validate.o \
-		tetriminos_normalize.o \
-		error_invalid_input.o \
-		debug_print_tetriminos.o
+DEPS = $(IDIR)/fillit.h \
+		$(LIBFT)/includes/libft.h
 
-$(TARGET):
-	# @$(CC) $(FLAGS) -c $(SRC)
-	# @$(CC) $(OBJ) libft.a -o $(TARGET)
-	@$(CC) $(FLAGS) $(SRC) libft.a -o $(TARGET)
+OBJ = $(patsubst %.c,$(ODIR)/%.o,$(_SRC)) \
+		$(LIBFT)/libft.a
 
-all: $(TARGET)
+SRC = $(patsubst %,$(SDIR)/%,$(_SRC)))
+
+_SRC =	main.c \
+		input_parse.c \
+		tetriminos_validate.c \
+		tetriminos_normalize.c \
+		error_invalid_input.c \
+		debug_print_tetriminos.c
+
+.PHONY: all clean fclean re
+
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	gcc $^ -o $@
+
+$(ODIR)/%.o: $(SDIR)/%.c $(DEPS)
+	@mkdir -p $(dir $@)
+	$(CC) -c -o $@ $< $(CFLAGS)
 
 clean:
-	@rm -f $(OBJ)
+	rm -f $(OBJ)
+	make -C $(LIBFT) clean
 
 fclean:	clean
-	@rm -f $(TARGET)
+	rm -f $(NAME)
+	make -C $(LIBFT) fclean
 
 re:	fclean all
+
+$(LIBFT)/libft.a:
+	make -C $(LIBFT) libft.a
