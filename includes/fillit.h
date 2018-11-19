@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 19:05:02 by marvin            #+#    #+#             */
-/*   Updated: 2018/10/23 19:05:02 by marvin           ###   ########.fr       */
+/*   Updated: 2018/11/19 12:43:00 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,16 @@
 #define INPUT_LINE_COUNT TETRIMINOS_SIZE
 #define INPUT_TETRIMINOS_SIZE (TETRIMINOS_SIZE * (INPUT_LINE_LEN + 1))
 
+#define TILE_AT(grid, x, y) grid->tiles[x + grid->width * y]
+#define TILES_COUNT(grid) (grid->height * grid->width)
+
 /*
 *	Types.
 */
 
 typedef struct s_tetriminos t_tetriminos;
 typedef struct s_point t_point;
+typedef struct s_grid t_grid;
 
 struct s_point
 {
@@ -53,6 +57,13 @@ struct s_tetriminos
 	int		width;
 	int		points_count;
 	t_point	points[TETRIMINOS_SIZE];
+};
+
+struct s_grid
+{
+	int				height;
+	int				width;
+	t_tetriminos	*tiles;
 };
 
 /*
