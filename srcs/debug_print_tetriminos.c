@@ -6,13 +6,13 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/02 01:30:06 by juazouz           #+#    #+#             */
-/*   Updated: 2018/11/19 16:15:50 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/11/19 17:15:03 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static int anything_at(t_tetriminos *tetriminos, int x, int y)
+static int	anything_at(t_tetriminos *tetriminos, int x, int y)
 {
 	t_point	*point;
 	int		i;

@@ -6,42 +6,47 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 22:09:45 by marvin            #+#    #+#             */
-/*   Updated: 2018/11/19 11:45:09 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/11/19 17:07:47 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static int		has_adjacent(t_tetriminos *tetriminos, t_point *p1)
+static int		count_adjacent(t_tetriminos *tetriminos, t_point *p1)
 {
 	int		i;
 	int		dist;
 	t_point	*p2;
+	int		n;
 
 	i = 0;
+	n = 0;
 	while (i < TETRIMINOS_SIZE)
 	{
 		p2 = &tetriminos->points[i];
 		dist = ABS(p2->x - p1->x) + ABS(p2->y - p1->y);
 		if (dist == 1)
-			return (1);
+			n++;
 		i++;
 	}
-
-	return (0);
+	return (n);
 }
 
 int				tetriminos_validate(t_tetriminos *tetriminos)
 {
 	int		i;
+	int		tmp;
+	int		n;
 
+	n = 0;
 	i = 0;
 	while (i < TETRIMINOS_SIZE)
 	{
-		if (!has_adjacent(tetriminos, &tetriminos->points[i]))
+		tmp = count_adjacent(tetriminos, &tetriminos->points[i]);
+		if (tmp < 1)
 			return (0);
+		n += tmp;
 		i++;
 	}
-
-	return (1);
+	return (n >= 6);
 }
