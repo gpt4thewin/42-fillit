@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/19 17:49:23 by juazouz           #+#    #+#             */
-/*   Updated: 2018/11/20 12:57:33 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/11/20 14:55:22 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ t_grid			*solve(t_tetriminos *tetri, int count)
 	t_grid	*result;
 
 	i = 1;
-	while (i < GRID_SIZE_LIMIT)
+	while (1)
 	{
 		result = solve_with_grid_size(tetri, count, i);
 		if (result != NULL)
