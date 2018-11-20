@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/02 00:57:20 by juazouz           #+#    #+#             */
-/*   Updated: 2018/11/20 12:58:35 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/11/20 14:44:18 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,6 @@ void			tetriminos_normalize(t_tetriminos *tetriminos)
 		vector_sub(&tetriminos->points[i], min_x, min_y);
 		i++;
 	}
+	tetriminos->width = tetriminos->points[TETRIMINOS_SIZE - 1].x + 1;
+	tetriminos->height = tetriminos->points[TETRIMINOS_SIZE - 1].y + 1;
 }

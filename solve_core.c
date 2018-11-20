@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 11:56:50 by juazouz           #+#    #+#             */
-/*   Updated: 2018/11/20 13:03:50 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/11/20 14:53:00 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,12 +66,12 @@ static int		find_space(t_grid *grid, t_tetriminos *tetri, int *x, int *y)
 			return (1);
 		}
 		(*x)++;
-		if (*x >= grid->size)
+		if (*x + tetri->width - 1 >= grid->size)
 		{
 			(*x) = 0;
 			(*y)++;
 		}
-		if (!IN_BOUNDS(grid, *x, *y))
+		if (!IN_BOUNDS(grid, (*x) + tetri->width - 1, (*y) + tetri->height - 1))
 		{
 			return (0);
 		}
