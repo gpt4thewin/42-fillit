@@ -12,7 +12,7 @@
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -I $(IDIR) -I $(LIBFT)/includes -g
+CFLAGS = -Wall -Wextra -Werror -I $(IDIR) -I $(LIBFT) -g
 
 IDIR = .
 SDIR = .
@@ -21,24 +21,23 @@ LIBFT = libft
 
 NAME = fillit
 
-DEPS = $(IDIR)/fillit.h \
-		$(LIBFT)/includes/libft.h
+DEPS = $(IDIR)/fillit.h
 
 OBJ = $(patsubst %.c,$(ODIR)/%.o,$(_SRC)) \
 		$(LIBFT)/libft.a
 
 SRC = $(patsubst %,$(SDIR)/%,$(_SRC)))
 
-_SRC =	main.c \
-		input_parse.c \
-		tetriminos_validate.c \
-		tetriminos_normalize.c \
-		error_invalid_input.c \
+_SRC =	create_grid.c \
 		debug_print_tetriminos.c \
-		solve.c \
-		create_grid.c \
 		free_grid.c \
-		print_grid.c
+		input_parse.c \
+		main.c \
+		print_grid.c \
+		solve.c \
+		solve_core.c \
+		tetriminos_normalize.c \
+		tetriminos_validate.c
 
 .PHONY: all clean fclean re
 

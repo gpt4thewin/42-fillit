@@ -6,13 +6,13 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 19:13:51 by juazouz           #+#    #+#             */
-/*   Updated: 2018/11/20 11:32:26 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/11/20 12:07:19 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static int			parse_line(char *str, int y, t_tetriminos *tetriminos)
+static int			parse_line(char *str, int y, t_tetriminos *tetri)
 {
 	int	i;
 
@@ -21,11 +21,11 @@ static int			parse_line(char *str, int y, t_tetriminos *tetriminos)
 	{
 		if (str[i] == '#')
 		{
-			if (tetriminos->points_count >= TETRIMINOS_SIZE)
+			if (tetri->points_count >= TETRIMINOS_SIZE)
 				return (0);
-			tetriminos->points[tetriminos->points_count].x = i;
-			tetriminos->points[tetriminos->points_count].y = y;
-			tetriminos->points_count++;
+			tetri->points[tetri->points_count].x = i;
+			tetri->points[tetri->points_count].y = y;
+			tetri->points_count++;
 		}
 		else if (str[i] != '.')
 		{
@@ -36,35 +36,35 @@ static int			parse_line(char *str, int y, t_tetriminos *tetriminos)
 	return (i == INPUT_LINE_LEN);
 }
 
-static int			parse_tetriminos(char *input, t_tetriminos *tetriminos)
+static int			parse_tetriminos(char *input, t_tetriminos *tetri)
 {
 	int	i;
 
 	i = 0;
 	while (i < TETRIMINOS_SIZE)
 	{
-		if (!parse_line(input, i, tetriminos))
+		if (!parse_line(input, i, tetri))
 		{
 			return (0);
 		}
 		input += INPUT_LINE_LEN + 1;
 		i++;
 	}
-	return (tetriminos->points_count == TETRIMINOS_SIZE);
+	return (tetri->points_count == TETRIMINOS_SIZE);
 }
 
-int					input_parse(char *input, t_tetriminos *tetriminos, int count)
+int					input_parse(char *input, t_tetriminos *tetri, int count)
 {
 	int	i;
 
 	i = 0;
 	while (1)
 	{
-		if (!parse_tetriminos(input, &tetriminos[i]))
+		if (!parse_tetriminos(input, &tetri[i]))
 		{
 			return (0);
 		}
-		tetriminos[i].id = i;
+		tetri[i].id = i;
 		input += INPUT_TETRIMINOS_SIZE;
 		i++;
 		if (i >= count)
@@ -73,6 +73,5 @@ int					input_parse(char *input, t_tetriminos *tetriminos, int count)
 			return (0);
 		input++;
 	}
-
 	return (1);
 }

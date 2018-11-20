@@ -6,16 +6,14 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/02 00:57:20 by juazouz           #+#    #+#             */
-/*   Updated: 2018/11/19 11:45:05 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/11/20 12:58:35 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <limits.h>
 #include "fillit.h"
 
-#define DISTANCE(p) (p->x + p->y)
-
-static int get_min_x(t_point *point)
+static int		get_min_x(t_point *point)
 {
 	int		min;
 	int		i;
@@ -30,11 +28,10 @@ static int get_min_x(t_point *point)
 		}
 		i++;
 	}
-
 	return (min);
 }
 
-static int get_min_y(t_point *point)
+static int		get_min_y(t_point *point)
 {
 	int		min;
 	int		i;
@@ -49,7 +46,6 @@ static int get_min_y(t_point *point)
 		}
 		i++;
 	}
-
 	return (min);
 }
 
@@ -65,8 +61,8 @@ void			tetriminos_normalize(t_tetriminos *tetriminos)
 	int		min_x;
 	int		min_y;
 
-	min_x = get_min_x((t_point*) &(tetriminos->points));
-	min_y = get_min_y((t_point*) &(tetriminos->points));
+	min_x = get_min_x((t_point*)&(tetriminos->points));
+	min_y = get_min_y((t_point*)&(tetriminos->points));
 	i = 0;
 	while (i < TETRIMINOS_SIZE)
 	{
