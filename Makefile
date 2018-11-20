@@ -12,7 +12,7 @@
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -I $(IDIR) -I $(LIBFT)/includes
+CFLAGS = -Wall -Wextra -Werror -I $(IDIR) -I $(LIBFT)/includes -g
 
 IDIR = includes
 SDIR = srcs
@@ -34,7 +34,9 @@ _SRC =	main.c \
 		tetriminos_validate.c \
 		tetriminos_normalize.c \
 		error_invalid_input.c \
-		debug_print_tetriminos.c
+		debug_print_tetriminos.c \
+		solve.c \
+		grid.c
 
 .PHONY: all clean fclean re
 

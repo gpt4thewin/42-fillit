@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 19:13:51 by juazouz           #+#    #+#             */
-/*   Updated: 2018/11/19 12:49:05 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/11/19 17:52:30 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ int					input_parse(char *input, t_tetriminos *tetriminos, int count)
 			ft_putendl("Input : Invalid tetriminos");
 			return (0);
 		}
+		tetriminos[i].id = i;
 		input += INPUT_TETRIMINOS_SIZE;
 		i++;
 		if (i >= count)

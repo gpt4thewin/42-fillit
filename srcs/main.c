@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/29 18:42:30 by juazouz           #+#    #+#             */
-/*   Updated: 2018/11/19 11:45:14 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/11/20 11:17:48 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ int			main(int argc, char *argv[])
 	int				count;
 	char			buffer[BUFFER_SIZE];
 	int				file_size;
+	t_grid			*result;
 
 	if (argc != 2)
 	{
@@ -103,6 +104,13 @@ int			main(int argc, char *argv[])
 	}
 
 	normalize(tetriminos, count);
+	result = solve(tetriminos, count);
+	if (result == NULL)
+	{
+		ft_putendl("(DEBUG) Could not find a solution");
+		return (1);
+	}
+	print_grid(result);
 
 	// int i = 0;
 	// while (i < 4)
