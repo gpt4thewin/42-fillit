@@ -14,8 +14,8 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror -I $(IDIR) -I $(LIBFT)/includes -g
 
-IDIR = includes
-SDIR = srcs
+IDIR = .
+SDIR = .
 ODIR = obj
 LIBFT = libft
 
@@ -36,7 +36,9 @@ _SRC =	main.c \
 		error_invalid_input.c \
 		debug_print_tetriminos.c \
 		solve.c \
-		grid.c
+		create_grid.c \
+		free_grid.c \
+		print_grid.c
 
 .PHONY: all clean fclean re
 

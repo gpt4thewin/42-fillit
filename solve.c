@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/19 17:49:23 by juazouz           #+#    #+#             */
-/*   Updated: 2018/11/20 11:29:20 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/11/20 11:32:41 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,10 +90,7 @@ int				solve_core(t_grid *grid, t_tetriminos *tetriminos, int count, int index)
 	while (find_space(grid, &tetriminos[index], &x, &y))
 	{
 		do_place(grid, &tetriminos[index], x, y);
-		// debug
-		print_grid(grid);
 		// getchar();
-
 		if (index == count - 1 ||
 			solve_core(grid, tetriminos, count, index + 1))
 			return (1);

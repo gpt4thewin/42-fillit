@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/29 18:42:30 by juazouz           #+#    #+#             */
-/*   Updated: 2018/11/20 11:17:48 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/11/20 11:48:39 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,12 +66,30 @@ static void	normalize(t_tetriminos *tetriminos, int count)
 	}
 }
 
+static int	parse(char *filepath, t_tetriminos **tetriminos, int *count)
+{
+	char			buffer[BUFFER_SIZE];
+	int				file_size;
+
+	if (!read_file(filepath, buffer, &file_size) ||
+		!tetriminos_count(file_size, count))
+	{
+		return (0);
+	}
+	*tetriminos = ft_memalloc(sizeof(t_tetriminos) * (*count));
+	if (!input_parse(buffer, *tetriminos, *count) ||
+		!validate(*tetriminos, *count))
+	{
+		return (0);
+	}
+	normalize(*tetriminos, *count);
+	return (1);
+}
+
 int			main(int argc, char *argv[])
 {
 	t_tetriminos	*tetriminos;
 	int				count;
-	char			buffer[BUFFER_SIZE];
-	int				file_size;
 	t_grid			*result;
 
 	if (argc != 2)
@@ -79,31 +97,10 @@ int			main(int argc, char *argv[])
 		ft_putendl(USAGE_TEXT);
 		return (1);
 	}
-
-	if (!read_file(argv[1], buffer, &file_size))
+	if (!parse(argv[1], &tetriminos, &count))
 	{
 		error_invalid_input();
 	}
-
-	if (!tetriminos_count(file_size, &count))
-	{
-		printf("input check by len KO");
-		error_invalid_input();
-	}
-
-	tetriminos = ft_memalloc(sizeof(t_tetriminos) * count);
-
-	if (!input_parse(buffer, tetriminos, count))
-	{
-		error_invalid_input();
-	}
-
-	if (!validate(tetriminos, count))
-	{
-		error_invalid_input();
-	}
-
-	normalize(tetriminos, count);
 	result = solve(tetriminos, count);
 	if (result == NULL)
 	{
@@ -111,13 +108,6 @@ int			main(int argc, char *argv[])
 		return (1);
 	}
 	print_grid(result);
-
-	// int i = 0;
-	// while (i < 4)
-	// {
-	// 	tetriminos[i];
-	// 	i++;
-	// }
 
 	return (0);
 }

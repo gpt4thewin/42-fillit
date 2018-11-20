@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 19:13:51 by juazouz           #+#    #+#             */
-/*   Updated: 2018/11/19 17:52:30 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/11/20 11:32:26 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,9 @@ static int			parse_line(char *str, int y, t_tetriminos *tetriminos)
 			tetriminos->points[tetriminos->points_count].x = i;
 			tetriminos->points[tetriminos->points_count].y = y;
 			tetriminos->points_count++;
-			// debug
-			printf("point %d,%d\n", i, y);
 		}
 		else if (str[i] != '.')
 		{
-			ft_putendl("Input : Invalid character");
 			return (0);
 		}
 		i++;
@@ -48,7 +45,6 @@ static int			parse_tetriminos(char *input, t_tetriminos *tetriminos)
 	{
 		if (!parse_line(input, i, tetriminos))
 		{
-			ft_putendl("Input : Invalid line");
 			return (0);
 		}
 		input += INPUT_LINE_LEN + 1;
@@ -66,7 +62,6 @@ int					input_parse(char *input, t_tetriminos *tetriminos, int count)
 	{
 		if (!parse_tetriminos(input, &tetriminos[i]))
 		{
-			ft_putendl("Input : Invalid tetriminos");
 			return (0);
 		}
 		tetriminos[i].id = i;
