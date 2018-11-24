@@ -6,13 +6,13 @@
 #    By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/17 17:47:32 by juazouz           #+#    #+#              #
-#    Updated: 2018/11/24 16:56:23 by juazouz          ###   ########.fr        #
+#    Updated: 2018/11/24 17:15:59 by juazouz          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -I $(IDIR) -I $(LIBFT) -g
+CFLAGS = -Wall -Wextra -Werror -I $(IDIR) -I $(LIBFT)/includes -g
 
 IDIR = .
 SDIR = .
