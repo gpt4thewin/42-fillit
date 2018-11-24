@@ -1,7 +1,0 @@
-obj/
-*.o
-*.stackdump
-.vscode
-fillit
-test.sh
-tests/
