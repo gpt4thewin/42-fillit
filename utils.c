@@ -6,16 +6,11 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 12:59:46 by juazouz           #+#    #+#             */
-/*   Updated: 2018/11/24 17:20:21 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/11/24 18:12:19 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-
-static int		ft_abs(int n)
-{
-	return (n > 0 ? n : -n);
-}
 
 int				in_bounds(t_grid *grid, int x, int y)
 {

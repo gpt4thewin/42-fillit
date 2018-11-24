@@ -6,7 +6,7 @@
 #    By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/17 17:47:32 by juazouz           #+#    #+#              #
-#    Updated: 2018/11/24 17:15:59 by juazouz          ###   ########.fr        #
+#    Updated: 2018/11/24 18:12:37 by juazouz          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,8 @@ _SRC =	create_grid.c \
 		solve_core.c \
 		tetriminos_normalize.c \
 		tetriminos_validate.c \
-		utils.c
+		utils.c \
+		ft_abs.c
 
 .PHONY: all clean fclean re
 
