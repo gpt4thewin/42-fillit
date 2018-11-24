@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 19:05:02 by marvin            #+#    #+#             */
-/*   Updated: 2018/11/24 13:41:17 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/11/24 17:19:57 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,6 @@ t_tetriminos				*cell_at(t_grid *grid, int x, int y);
 void						set_cell_at(t_grid *grid, int x, int y,
 										t_tetriminos *val);
 int							cells_count(t_grid *grid);
+int							distance(t_point *a, t_point *b);
 
 #endif

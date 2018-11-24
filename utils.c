@@ -6,11 +6,16 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 12:59:46 by juazouz           #+#    #+#             */
-/*   Updated: 2018/11/24 13:15:28 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/11/24 17:20:21 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+
+static int		ft_abs(int n)
+{
+	return (n > 0 ? n : -n);
+}
 
 int				in_bounds(t_grid *grid, int x, int y)
 {
@@ -30,4 +35,9 @@ void			set_cell_at(t_grid *grid, int x, int y, t_tetriminos *val)
 int				cells_count(t_grid *grid)
 {
 	return (grid->size * grid->size);
+}
+
+int				distance(t_point *a, t_point *b)
+{
+	return (ft_abs(a->x - b->x) + ft_abs(a->y - b->y));
 }

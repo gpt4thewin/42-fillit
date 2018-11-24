@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 11:56:50 by juazouz           #+#    #+#             */
-/*   Updated: 2018/11/24 13:13:24 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/11/24 17:52:22 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static void		remove_at(t_grid *grid, t_tetriminos *tetri, int x, int y)
 	while (i < TETRIMINOS_SIZE)
 	{
 		point = tetri->points[i];
-		set_cell_at(grid, point.x + x, point.y + y, tetri);
+		set_cell_at(grid, point.x + x, point.y + y, NULL);
 		i++;
 	}
 }

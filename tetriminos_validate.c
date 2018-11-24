@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 22:09:45 by marvin            #+#    #+#             */
-/*   Updated: 2018/11/20 13:20:14 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/11/24 17:16:55 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int		count_adjacent(t_tetriminos *tetriminos, t_point *p1)
 	while (i < TETRIMINOS_SIZE)
 	{
 		p2 = &tetriminos->points[i];
-		dist = ABS((p2->x - p1->x)) + ABS((p2->y - p1->y));
+		dist = distance(p1, p2);
 		if (dist == 1)
 			n++;
 		i++;
