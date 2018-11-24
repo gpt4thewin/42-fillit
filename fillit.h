@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 19:05:02 by marvin            #+#    #+#             */
-/*   Updated: 2018/11/20 12:05:50 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/11/24 13:41:17 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,6 @@
 # define INPUT_LINE_COUNT TETRIMINOS_SIZE
 # define INPUT_TETRIMINOS_SIZE (TETRIMINOS_SIZE * (INPUT_LINE_LEN + 1))
 # define GRID_SIZE_LIMIT 8
-
-# define IN_BOUNDS(grid, x, y) ((x) < grid->size && (y) < grid->size)
-# define CELL_AT(grid, x, y) (grid->cells[(x) + grid->size * (y)])
-# define CELLS_COUNT(grid) (grid->size * grid->size)
 
 /*
 **	Types.
@@ -89,5 +85,10 @@ t_grid						*create_grid(int size);
 void						free_grid(t_grid *grid);
 
 void						print_grid(t_grid *grid);
+int							in_bounds(t_grid *grid, int x, int y);
+t_tetriminos				*cell_at(t_grid *grid, int x, int y);
+void						set_cell_at(t_grid *grid, int x, int y,
+										t_tetriminos *val);
+int							cells_count(t_grid *grid);
 
 #endif

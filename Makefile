@@ -37,7 +37,8 @@ _SRC =	create_grid.c \
 		solve.c \
 		solve_core.c \
 		tetriminos_normalize.c \
-		tetriminos_validate.c
+		tetriminos_validate.c \
+		utils.c
 
 .PHONY: all clean fclean re
 

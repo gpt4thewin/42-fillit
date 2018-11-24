@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 11:56:50 by juazouz           #+#    #+#             */
-/*   Updated: 2018/11/20 14:53:00 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/11/24 13:13:24 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ static int		can_place(t_grid *grid, t_tetriminos *tetri, int x, int y)
 	while (i < TETRIMINOS_SIZE)
 	{
 		point = tetri->points[i];
-		if (!IN_BOUNDS(grid, point.x + x, point.y + y) ||
-			CELL_AT(grid, point.x + x, point.y + y) != NULL)
+		if (!in_bounds(grid, point.x + x, point.y + y) ||
+			cell_at(grid, point.x + x, point.y + y) != NULL)
 			return (0);
 		i++;
 	}
@@ -38,7 +38,7 @@ static void		do_place(t_grid *grid, t_tetriminos *tetri, int x, int y)
 	while (i < TETRIMINOS_SIZE)
 	{
 		point = tetri->points[i];
-		CELL_AT(grid, point.x + x, point.y + y) = tetri;
+		set_cell_at(grid, point.x + x, point.y + y, tetri);
 		i++;
 	}
 }
@@ -52,7 +52,7 @@ static void		remove_at(t_grid *grid, t_tetriminos *tetri, int x, int y)
 	while (i < TETRIMINOS_SIZE)
 	{
 		point = tetri->points[i];
-		CELL_AT(grid, point.x + x, point.y + y) = NULL;
+		set_cell_at(grid, point.x + x, point.y + y, tetri);
 		i++;
 	}
 }
@@ -71,7 +71,7 @@ static int		find_space(t_grid *grid, t_tetriminos *tetri, int *x, int *y)
 			(*x) = 0;
 			(*y)++;
 		}
-		if (!IN_BOUNDS(grid, (*x) + tetri->width - 1, (*y) + tetri->height - 1))
+		if (!in_bounds(grid, (*x) + tetri->width - 1, (*y) + tetri->height - 1))
 		{
 			return (0);
 		}

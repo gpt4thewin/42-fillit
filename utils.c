@@ -1,43 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_grid.c                                       :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/20 11:33:15 by juazouz           #+#    #+#             */
-/*   Updated: 2018/11/24 13:13:52 by juazouz          ###   ########.fr       */
+/*   Created: 2018/11/24 12:59:46 by juazouz           #+#    #+#             */
+/*   Updated: 2018/11/24 13:15:28 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static void	print_line(t_grid *grid, int y)
+int				in_bounds(t_grid *grid, int x, int y)
 {
-	int				i;
-	t_tetriminos	*content;
-
-	i = 0;
-	while (i < grid->size)
-	{
-		content = cell_at(grid, i, y);
-		if (content != NULL)
-			ft_putchar(content->id + 'A');
-		else
-			ft_putchar('.');
-		i++;
-	}
-	ft_putendl("");
+	return (x < grid->size && y < grid->size);
 }
 
-void		print_grid(t_grid *grid)
+t_tetriminos	*cell_at(t_grid *grid, int x, int y)
 {
-	int	i;
+	return (grid->cells[x + grid->size * y]);
+}
 
-	i = 0;
-	while (i < grid->size)
-	{
-		print_line(grid, i);
-		i++;
-	}
+void			set_cell_at(t_grid *grid, int x, int y, t_tetriminos *val)
+{
+	(grid->cells[x + grid->size * y]) = val;
+}
+
+int				cells_count(t_grid *grid)
+{
+	return (grid->size * grid->size);
 }
