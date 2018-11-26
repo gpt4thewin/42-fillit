@@ -6,7 +6,7 @@
 #    By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/17 17:47:32 by juazouz           #+#    #+#              #
-#    Updated: 2018/11/26 12:41:59 by juazouz          ###   ########.fr        #
+#    Updated: 2018/11/26 14:25:22 by juazouz          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,7 @@ NAME = fillit
 
 DEPS = $(IDIR)/fillit.h
 
-OBJ = $(patsubst %.c,$(ODIR)/%.o,$(_SRC)) \
-		$(LIBFT)/libft.a
+OBJ = $(patsubst %.c,$(ODIR)/%.o,$(_SRC))
 
 SRC = $(patsubst %,$(SDIR)/%,$(_SRC)))
 
@@ -47,7 +46,7 @@ _SRC =	create_grid.c \
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	gcc $^ -o $@
+	gcc $^ $(LIBFT)/libft.a -o $@
 
 $(ODIR)/%.o: $(SDIR)/%.c $(DEPS)
 	@mkdir -p $(dir $@)
@@ -55,13 +54,8 @@ $(ODIR)/%.o: $(SDIR)/%.c $(DEPS)
 
 clean:
 	rm -f $(OBJ)
-	make -C $(LIBFT) clean
 
 fclean:	clean
 	rm -f $(NAME)
-	make -C $(LIBFT) fclean
 
 re:	fclean all
-
-$(LIBFT)/libft.a:
-	make -C $(LIBFT) libft.a
