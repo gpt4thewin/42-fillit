@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 11:56:50 by juazouz           #+#    #+#             */
-/*   Updated: 2018/11/26 12:48:27 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/11/26 13:29:13 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ static int		can_place(t_grid *grid, t_tetriminos *tetri, int x, int y)
 	while (i < TETRIMINOS_SIZE)
 	{
 		point = tetri->points[i];
-		if (!in_bounds(grid, point.x + x, point.y + y) ||
-			cell_at(grid, point.x + x, point.y + y) != NULL)
+		if (cell_at(grid, point.x + x, point.y + y) != NULL)
 			return (0);
 		i++;
 	}
@@ -66,10 +65,6 @@ static int		find_space(t_grid *grid, t_tetriminos *tetri, int *x, int *y)
 			if (can_place(grid, tetri, *x, *y))
 			{
 				return (1);
-			}
-			if (!in_bounds(grid, (*x) + tetri->width - 1, (*y) + tetri->height - 1))
-			{
-				return (0);
 			}
 			(*x)++;
 		}

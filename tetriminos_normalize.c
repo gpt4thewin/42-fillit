@@ -6,53 +6,53 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/02 00:57:20 by juazouz           #+#    #+#             */
-/*   Updated: 2018/11/20 14:44:18 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/11/26 13:29:17 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <limits.h>
 #include "fillit.h"
 
-static int		get_min_x(t_point *point)
+static int		get_min(t_point *point, int (f)(t_point*))
 {
 	int		min;
 	int		i;
 
-	i = 0;
-	min = point[i].x;
+	min = f(&point[0]);
+	i = 1;
 	while (i < TETRIMINOS_SIZE)
 	{
-		if (point[i].x < min)
-		{
-			min = point[i].x;
-		}
+		if (f(&point[i]) < min)
+			min = f(&point[i]);
 		i++;
 	}
 	return (min);
 }
 
-static int		get_min_y(t_point *point)
+static int		get_max(t_point *point, int (f)(t_point*))
 {
-	int		min;
+	int		max;
 	int		i;
 
-	i = 0;
-	min = point[i].y;
+	max = f(&point[0]);
+	i = 1;
 	while (i < TETRIMINOS_SIZE)
 	{
-		if (point[i].y < min)
-		{
-			min = point[i].y;
-		}
+		if (f(&point[i]) > max)
+			max = f(&point[i]);
 		i++;
 	}
-	return (min);
+	return (max);
 }
 
-static void		vector_sub(t_point *point, int x, int y)
+static int		get_x(t_point *point)
 {
-	point->x -= x;
-	point->y -= y;
+	return (point->x);
+}
+
+static int		get_y(t_point *point)
+{
+	return (point->y);
 }
 
 void			tetriminos_normalize(t_tetriminos *tetriminos)
@@ -61,14 +61,15 @@ void			tetriminos_normalize(t_tetriminos *tetriminos)
 	int		min_x;
 	int		min_y;
 
-	min_x = get_min_x((t_point*)&(tetriminos->points));
-	min_y = get_min_y((t_point*)&(tetriminos->points));
+	min_x = get_min(tetriminos->points, get_x);
+	min_y = get_min(tetriminos->points, get_y);
 	i = 0;
 	while (i < TETRIMINOS_SIZE)
 	{
-		vector_sub(&tetriminos->points[i], min_x, min_y);
+		tetriminos->points[i].x -= min_x;
+		tetriminos->points[i].y -= min_y;
 		i++;
 	}
-	tetriminos->width = tetriminos->points[TETRIMINOS_SIZE - 1].x + 1;
-	tetriminos->height = tetriminos->points[TETRIMINOS_SIZE - 1].y + 1;
+	tetriminos->width = get_max(tetriminos->points, get_x) + 1;
+	tetriminos->height = get_max(tetriminos->points, get_y) + 1;
 }
