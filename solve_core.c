@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 11:56:50 by juazouz           #+#    #+#             */
-/*   Updated: 2018/11/26 13:29:13 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/11/26 13:35:50 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,18 +58,26 @@ static void		remove_at(t_grid *grid, t_tetriminos *tetri, int x, int y)
 
 static int		find_space(t_grid *grid, t_tetriminos *tetri, int *x, int *y)
 {
-	while (*y < grid->size && *y + tetri->height - 1 < grid->size)
+	int	right;
+	int	bottom;
+
+	right = *x + tetri->width - 1;
+	bottom = *y + tetri->height - 1;
+	while (bottom < grid->size)
 	{
-		while (*x < grid->size && *x + tetri->width - 1 < grid->size)
+		while (right < grid->size)
 		{
 			if (can_place(grid, tetri, *x, *y))
 			{
 				return (1);
 			}
 			(*x)++;
+			right++;
 		}
 		(*x) = 0;
+		right = tetri->width - 1;
 		(*y)++;
+		bottom++;
 	}
 	return (0);
 }
