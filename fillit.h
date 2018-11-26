@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 19:05:02 by marvin            #+#    #+#             */
-/*   Updated: 2018/11/24 18:19:39 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/11/26 12:43:24 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 # define INPUT_LINE_COUNT TETRIMINOS_SIZE
 # define INPUT_TETRIMINOS_SIZE (TETRIMINOS_SIZE * (INPUT_LINE_LEN + 1))
 # define GRID_SIZE_LIMIT 8
+# define MEMORY_ERROR_MSG "Error: Could not allocate memory"
 
 /*
 **	Types.
@@ -93,5 +94,7 @@ int							cells_count(t_grid *grid);
 int							distance(t_point *a, t_point *b);
 
 int							ft_abs(int n);
+
+void						*ft_safemalloc(size_t size);
 
 #endif

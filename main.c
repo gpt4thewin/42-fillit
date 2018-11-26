@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/29 18:42:30 by juazouz           #+#    #+#             */
-/*   Updated: 2018/11/20 13:05:38 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/11/26 12:40:54 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static int	parse(char *filepath, t_tetriminos **tetri, int *count)
 	{
 		return (0);
 	}
-	*tetri = ft_memalloc(sizeof(t_tetriminos) * (*count));
+	*tetri = ft_safemalloc(sizeof(t_tetriminos) * (*count));
 	if (!input_parse(buffer, *tetri, *count) ||
 		!validate(*tetri, *count))
 	{

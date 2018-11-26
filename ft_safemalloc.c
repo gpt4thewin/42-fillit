@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_grid.c                                      :+:      :+:    :+:   */
+/*   ft_safemalloc.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/19 18:00:04 by juazouz           #+#    #+#             */
-/*   Updated: 2018/11/26 12:40:19 by juazouz          ###   ########.fr       */
+/*   Created: 2018/11/26 12:37:30 by juazouz           #+#    #+#             */
+/*   Updated: 2018/11/26 12:40:24 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-t_grid		*create_grid(int size)
+void	*ft_safemalloc(size_t size)
 {
-	t_grid	*grid;
+	void	*res;
 
-	grid = ft_safemalloc(sizeof(t_grid));
-	grid->size = size;
-	grid->cells = ft_safemalloc(sizeof(t_tetriminos*) * size * size);
-	return (grid);
+	res = ft_memalloc(size);
+	if (res == NULL)
+	{
+		ft_putendl(MEMORY_ERROR_MSG);
+		exit(1);
+	}
+	return (res);
 }
