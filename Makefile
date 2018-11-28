@@ -6,7 +6,7 @@
 #    By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/17 17:47:32 by juazouz           #+#    #+#              #
-#    Updated: 2018/11/28 15:25:46 by juazouz          ###   ########.fr        #
+#    Updated: 2018/11/28 15:47:29 by juazouz          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,6 @@ OBJ = $(patsubst %.c,$(ODIR)/%.o,$(_SRC))
 SRC = $(patsubst %,$(SDIR)/%,$(_SRC)))
 
 _SRC =	create_grid.c \
-		debug_print_tetriminos.c \
 		free_grid.c \
 		input_parse.c \
 		main.c \

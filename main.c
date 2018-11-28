@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/29 18:42:30 by juazouz           #+#    #+#             */
-/*   Updated: 2018/11/26 12:40:54 by juazouz          ###   ########.fr       */
+/*   Created: 2018/11/20 18:42:30 by juazouz           #+#    #+#             */
+/*   Updated: 2018/11/28 15:46:30 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,11 +95,7 @@ int			main(int argc, char *argv[])
 		return (1);
 	}
 	result = solve(tetri, count);
-	if (result == NULL)
-	{
-		ft_putendl("(DEBUG) Could not find a solution");
-		return (1);
-	}
 	print_grid(result);
+	free_grid(result);
 	return (0);
 }
