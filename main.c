@@ -91,7 +91,7 @@ int			main(int argc, char *argv[])
 	}
 	if (!parse(argv[1], &tetri, &count))
 	{
-		ft_putendl("error");
+		ft_putendl(ERROR_MSG);
 		return (1);
 	}
 	result = solve(tetri, count);
