@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 18:42:30 by juazouz           #+#    #+#             */
-/*   Updated: 2018/11/28 15:46:30 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/11/28 15:50:54 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,5 +97,6 @@ int			main(int argc, char *argv[])
 	result = solve(tetri, count);
 	print_grid(result);
 	free_grid(result);
+	free(tetri);
 	return (0);
 }
