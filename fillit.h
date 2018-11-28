@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 19:05:02 by marvin            #+#    #+#             */
-/*   Updated: 2018/11/26 12:43:24 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/11/28 15:19:09 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 # define INPUT_LINE_COUNT TETRIMINOS_SIZE
 # define INPUT_TETRIMINOS_SIZE (TETRIMINOS_SIZE * (INPUT_LINE_LEN + 1))
 # define GRID_SIZE_LIMIT 8
-# define MEMORY_ERROR_MSG "Error: Could not allocate memory"
+# define ERROR_MSG "error"
 
 /*
 **	Types.
