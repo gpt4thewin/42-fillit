@@ -1,0 +1,9 @@
+obj/
+*.o
+*.stackdump
+.vscode
+fillit
+test.sh
+tests/
+libft/libft.a
+*.dSYM
