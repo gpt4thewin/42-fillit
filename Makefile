@@ -6,7 +6,7 @@
 #    By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/17 17:47:32 by juazouz           #+#    #+#              #
-#    Updated: 2018/11/29 13:28:32 by juazouz          ###   ########.fr        #
+#    Updated: 2018/11/29 14:37:29 by juazouz          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,17 +44,29 @@ _SRC =	create_grid.c \
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) $(LIBFT)/libft.a
 	gcc $^ $(LIBFT)/libft.a -o $@
 
 $(ODIR)/%.o: $(SDIR)/%.c $(DEPS)
 	@mkdir -p $(dir $@)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-clean:
+$(LIBFT)/libft.a:
+	make -C libft/
+
+clean: cleanlib
 	rm -f $(OBJ)
 
-fclean:	clean
+fclean:	clean fcleanlib
 	rm -f $(NAME)
 
 re:	fclean all
+
+cleanlib:
+	make clean -C libft/
+
+fcleanlib:
+	make fclean -C libft/
+
+relib:
+	make re -C libft/
