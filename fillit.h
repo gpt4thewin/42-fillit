@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 15:05:02 by juazouz           #+#    #+#             */
-/*   Updated: 2018/11/29 13:26:46 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/11/29 13:55:23 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@
 # define INPUT_LINE_LEN 4
 # define INPUT_LINE_COUNT TETRIMINOS_SIZE
 # define INPUT_TETRIMINOS_SIZE 20
-# define GRID_SIZE_LIMIT 8
 # define ERROR_MSG "error"
 
 /*
@@ -72,9 +71,6 @@ int							input_parse(char *input,
 										int count);
 int							tetriminos_validate(t_tetriminos *tetri);
 void						tetriminos_normalize(t_tetriminos *tetri);
-void						error_invalid_input();
-
-void						debug_print_tetriminos(t_tetriminos *tetri);
 
 t_grid						*solve(t_tetriminos *tetri, int count);
 int							solve_core(t_grid *grid,
@@ -86,7 +82,6 @@ t_grid						*create_grid(int size);
 void						free_grid(t_grid *grid);
 
 void						print_grid(t_grid *grid);
-int							in_bounds(t_grid *grid, int x, int y);
 t_tetriminos				*cell_at(t_grid *grid, int x, int y);
 void						set_cell_at(t_grid *grid, int x, int y,
 										t_tetriminos *val);
