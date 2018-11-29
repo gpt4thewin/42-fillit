@@ -6,98 +6,93 @@
 #    By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/17 17:47:32 by juazouz           #+#    #+#              #
-#    Updated: 2018/11/24 12:53:58 by juazouz          ###   ########.fr        #
+#    Updated: 2018/10/17 17:47:32 by juazouz          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -I $(IDIR)
+CFLAGS = -Wall -Wextra -Werror
 
 NAME = libft.a
 
-DEPS = $(IDIR)/libft.h
+DEPS = libft.h
 
-SDIR = srcs
-IDIR = includes
-ODIR = obj
+OBJ = $(patsubst %.c,%.o,$(SRC))
 
-OBJ = $(patsubst %.c,$(ODIR)/%.o,$(_SRC))
-SRC = $(prefix $(SDIR),$(_SRC))
-
-_SRC =	./char/ft_isalnum.c \
-		./char/ft_isalpha.c \
-		./char/ft_isascii.c \
-		./char/ft_isdigit.c \
-		./char/ft_islower.c \
-		./char/ft_isprint.c \
-		./char/ft_isspace.c \
-		./char/ft_isupper.c \
-		./char/ft_tolower.c \
-		./char/ft_toupper.c \
-		./linq/ft_all.c \
-		./linq/ft_any.c \
-		./linq/ft_atoi.c \
-		./linq/ft_foreach.c \
-		./linq/ft_max.c \
-		./linq/ft_min.c \
-		./list/ft_lstadd.c \
-		./list/ft_lstdel.c \
-		./list/ft_lstdelone.c \
-		./list/ft_lstiter.c \
-		./list/ft_lstmap.c \
-		./list/ft_lstnew.c \
-		./memory/ft_bzero.c \
-		./memory/ft_memalloc.c \
-		./memory/ft_memccpy.c \
-		./memory/ft_memchr.c \
-		./memory/ft_memcmp.c \
-		./memory/ft_memcpy.c \
-		./memory/ft_memdel.c \
-		./memory/ft_memmove.c \
-		./memory/ft_memset.c \
-		./output/ft_putchar.c \
-		./output/ft_putchar_fd.c \
-		./output/ft_putendl.c \
-		./output/ft_putendl_fd.c \
-		./output/ft_putnbr.c \
-		./output/ft_putnbr_fd.c \
-		./output/ft_putstr.c \
-		./output/ft_putstr_fd.c \
-		./string/ft_itoa.c \
-		./string/ft_strcat.c \
-		./string/ft_strchr.c \
-		./string/ft_strclr.c \
-		./string/ft_strcmp.c \
-		./string/ft_strcpy.c \
-		./string/ft_strdel.c \
-		./string/ft_strdup.c \
-		./string/ft_strequ.c \
-		./string/ft_striter.c \
-		./string/ft_striteri.c \
-		./string/ft_strjoin.c \
-		./string/ft_strlcat.c \
-		./string/ft_strlen.c \
-		./string/ft_strmap.c \
-		./string/ft_strmapi.c \
-		./string/ft_strncat.c \
-		./string/ft_strncmp.c \
-		./string/ft_strncpy.c \
-		./string/ft_strnequ.c \
-		./string/ft_strnew.c \
-		./string/ft_strnstr.c \
-		./string/ft_strrchr.c \
-		./string/ft_strsplit.c \
-		./string/ft_strstr.c \
-		./string/ft_strsub.c \
-		./string/ft_strtrim.c
+SRC =	ft_atoi.c \
+		ft_isalnum.c \
+		ft_isalpha.c \
+		ft_isascii.c \
+		ft_isdigit.c \
+		ft_islower.c \
+		ft_isprint.c \
+		ft_isupper.c \
+		ft_isspace.c \
+		ft_itoa.c \
+		ft_strcat.c \
+		ft_strchr.c \
+		ft_strclr.c \
+		ft_strcmp.c \
+		ft_strcpy.c \
+		ft_strdel.c \
+		ft_strdup.c \
+		ft_strequ.c \
+		ft_striter.c \
+		ft_striteri.c \
+		ft_strjoin.c \
+		ft_strlcat.c \
+		ft_strlen.c \
+		ft_strmap.c \
+		ft_strmapi.c \
+		ft_strncat.c \
+		ft_strncmp.c \
+		ft_strncpy.c \
+		ft_strnequ.c \
+		ft_strnew.c \
+		ft_strnstr.c \
+		ft_strrchr.c \
+		ft_strsplit.c \
+		ft_strstr.c \
+		ft_strsub.c \
+		ft_strtrim.c \
+		ft_tolower.c \
+		ft_toupper.c \
+		ft_memalloc.c \
+		ft_memccpy.c \
+		ft_memchr.c \
+		ft_memcmp.c \
+		ft_memcpy.c \
+		ft_memdel.c \
+		ft_memmove.c \
+		ft_memset.c \
+		ft_bzero.c \
+		ft_putchar.c \
+		ft_putchar_fd.c \
+		ft_putendl.c \
+		ft_putendl_fd.c \
+		ft_putnbr.c \
+		ft_putnbr_fd.c \
+		ft_putstr.c \
+		ft_putstr_fd.c \
+		ft_lstadd.c \
+		ft_lstdel.c \
+		ft_lstdelone.c \
+		ft_lstiter.c \
+		ft_lstmap.c \
+		ft_lstnew.c \
+		ft_foreach.c \
+		ft_all.c \
+		ft_any.c \
+		ft_min.c \
+		ft_max.c
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	ar rcs $@ $^
 
-$(ODIR)/%.o: $(SDIR)/%.c $(DEPS)
+%.o: %.c $(DEPS)
 	@mkdir -p $(dir $@)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
