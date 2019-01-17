@@ -1,4 +1,4 @@
-# fillit
+# 42-fillit
 42 "fillit" puzzle solving C project
 ## About
 * The program reads a set of tetri pieces on input.
